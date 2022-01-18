@@ -1,16 +1,20 @@
 {
   "folders": [
     {
-      "path": "vue-main"
-    },
-    {
-      "path": "vue-micro"
-    },
-    {
+      "name": "react-main",
       "path": "react-main"
     },
     {
+      "name": "react-micro",
       "path": "react-micro"
+    },
+    {
+      "name": "vue-main",
+      "path": "vue-main"
+    },
+    {
+      "name": "vue-micro",
+      "path": "vue-micro"
     }
   ]
 }
