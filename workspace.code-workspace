@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "react-main"
+		},
+		{
+			"path": "react-micro"
+		},
+		{
+			"path": "vue-main"
+		},
+		{
+			"path": "vue-micro"
+		}
+	]
+}
