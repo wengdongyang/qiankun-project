@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-07 15:04:09
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 17:27:20
+ * @Last Modified time: 2022-01-19 17:37:47
  */
 const path = require('path');
 const {pageGroups} = require('../configs/index');
@@ -21,7 +21,7 @@ pageGroups.forEach(async group => {
   pages.forEach(async page => {
     const {pages: subPages} = page;
     if (!subPages) {
-      const {path: pagePath, components = []} = page;
+      const {path: pagePath} = page;
       const pageFullPath = `${groupFullPath}/${pagePath}`;
       const ViewName = capitalizeWord(pagePath);
       await mkdirSync(`${pageFullPath}`);
@@ -39,10 +39,10 @@ pageGroups.forEach(async group => {
       await writeFileSync(`${pageFullPath}/utils.js`, templateEmptyFileTsFun('Utils')); // utils.js
       await writeFileSync(`${pageFullPath}/configs.js`, templateEmptyFileTsFun('Configs')); // configs.js
       await writeFileSync(`${pageFullPath}/${ViewName}Component.vue`, templatePageComponentVue(`${ViewName}Component`, './'));
-      await writeFileSync(`${pageFullPath}/${ViewName}Component.module.less`, templateComponentModuleLessFun()); // ViewComponent.module.less
+      await writeFileSync(`${pageFullPath}/${ViewName}Component.less`, templateComponentModuleLessFun()); // ViewComponent.module.less
     } else {
       subPages.forEach(async subPage => {
-        const {path: pagePath, components = []} = subPage;
+        const {path: pagePath} = subPage;
         const pageFullPath = `${groupFullPath}/${pagePath}`;
         const ViewName = capitalizeWord(pagePath);
         await mkdirSync(`${pageFullPath}`);
@@ -58,7 +58,7 @@ pageGroups.forEach(async group => {
         await writeFileSync(`${pageFullPath}/utils.js`, templateEmptyFileTsFun('Utils')); // utils.js
         await writeFileSync(`${pageFullPath}/configs.js`, templateEmptyFileTsFun('Configs')); // configs.js
         await writeFileSync(`${pageFullPath}/${ViewName}Component.vue`, templatePageComponentVue(`${ViewName}Component`, './'));
-        await writeFileSync(`${pageFullPath}/${ViewName}Component.module.less`, templateComponentModuleLessFun()); // ViewComponent.module.less
+        await writeFileSync(`${pageFullPath}/${ViewName}Component.less`, templateComponentModuleLessFun()); // ViewComponent.module.less
       });
     }
   });
