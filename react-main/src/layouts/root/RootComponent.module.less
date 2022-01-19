@@ -1,0 +1,38 @@
+/*
+ * @Author: wdy 
+ * @Date: 2022-01-18 18:30:26 
+ * @Last Modified by: wdy
+ * @Last Modified time: 2022-01-19 11:21:28
+ */
+@import '@src/styles/configs/index.less';
+@import '@src/styles/mixins/index.less';
+
+.main-layout {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+
+  .main-layout-sider {
+    width: 300px;
+  }
+
+  .layout {
+    overflow-y: auto;
+    height: 100vh;
+
+    .layout-header {
+      height: 64px;
+    }
+
+    .layout-content {
+      height: calc(100vh - 64px - 24px);
+    }
+
+    .layout-footer {
+      font-size: @aseit-font-size-base;
+      line-height: 24px;
+      padding: 0;
+      text-align: center;
+    }
+  }
+}
