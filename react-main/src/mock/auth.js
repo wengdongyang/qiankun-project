@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-17 10:40:21
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 12:04:28
+ * @Last Modified time: 2022-01-19 14:11:52
  */
 const mockApiPostAuthLogin = req => {
   return {
@@ -23,7 +23,7 @@ const mockApiGetAuthMenuTree = req => {
       {
         id: '6630d3b1a8a148e49b0887f08bae0782',
         parentId: '0',
-        name: '基础模块',
+        name: '自身模块',
         isLeaf: false,
         children: [
           {
@@ -31,35 +31,35 @@ const mockApiGetAuthMenuTree = req => {
             parentId: '6630d3b1a8a148e49b0887f08bae0782',
             name: '角色菜单管理',
             isLeaf: true,
-            route: {name: '角色菜单管理', type: 'qiankun', path: '/base/roleMenuConfigs'},
+            route: {name: '角色菜单管理', type: 'self', path: '/base/roleMenuConfigs'},
           },
           {
             id: 'ece178fafa784483887326c6697d9a26',
             parentId: '6630d3b1a8a148e49b0887f08bae0782',
             name: '首页设置',
             isLeaf: true,
-            route: {name: '首页设置', type: 'qiankun', path: '/base/homeSetting'},
+            route: {name: '首页设置', type: 'self', path: '/base/homeSetting'},
           },
           {
             id: '74bda39c7be2498e995427bc05565342',
             parentId: '6630d3b1a8a148e49b0887f08bae0782',
             name: '员工管理',
             isLeaf: true,
-            route: {name: '员工管理', type: 'qiankun', path: '/base/employeeConfigs'},
+            route: {name: '员工管理', type: 'self', path: '/base/employeeConfigs'},
           },
           {
             id: '6b28f8f971f84a2baa78c71470e9af3b',
             parentId: '6630d3b1a8a148e49b0887f08bae0782',
             name: '员工服务器权限管理',
             isLeaf: true,
-            route: {name: '员工服务器权限管理', type: 'qiankun', path: '/base/employeeServerPermissions'},
+            route: {name: '员工服务器权限管理', type: 'self', path: '/base/employeeServerPermissions'},
           },
         ],
       },
       {
         id: '4b40bf4fa4dc47cba091f5496ea03feb',
         parentId: '0',
-        name: '模块管理',
+        name: '外部模块',
         isLeaf: false,
         children: [
           {
