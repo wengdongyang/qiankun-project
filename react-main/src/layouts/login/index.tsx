@@ -1,10 +1,4 @@
-/*
- * @Author: wdy
- * @Date: 2021-09-23 17:22:55
- * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 11:09:27
- */
-import React, {Fragment} from 'react';
+import React from 'react';
 // apis
 // hooks
 // utils

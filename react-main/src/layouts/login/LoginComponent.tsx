@@ -2,13 +2,13 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 12:01:52
+ * @Last Modified time: 2022-01-19 12:02:45
  */
 import styles from './LoginComponent.module.less';
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Form, Input, Button} from 'antd';
 // apis
-import {apiAuthLogin} from '@src/apis/auth';
+import {apiPostAuthLogin} from '@src/apis/auth';
 // hooks
 // utils
 // types
@@ -25,7 +25,7 @@ const LoginComponent: FunctionComponent<Props> = props => {
     try {
       const values = await form.validateFields();
       const {username, password} = values;
-      const {code, data} = await apiAuthLogin({username, password});
+      const {code, data} = await apiPostAuthLogin({username, password});
       if (code === '200') {
         props.history.push({pathname: '/root'});
       }

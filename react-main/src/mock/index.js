@@ -6,10 +6,10 @@
  */
 import Mock from 'mockjs';
 
-import {mockApiAuthLogin, mockApiAuthMenuTree} from './auth';
+import {mockApiPostAuthLogin, mockApiGetAuthMenuTree} from './auth';
 
 Mock.setup({timeout: 1000});
 
-Mock.mock(/\/api\/auth\/login/, mockApiAuthLogin);
-Mock.mock(/\/api\/auth\/menu\/tree/, mockApiAuthMenuTree);
+Mock.mock(/\/api\/auth\/login/, mockApiPostAuthLogin);
+Mock.mock(/\/api\/auth\/menu\/tree/, mockApiGetAuthMenuTree);
 export default Mock;

@@ -2,9 +2,9 @@
  * @Author: wdy
  * @Date: 2022-01-17 10:40:21
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 12:00:05
+ * @Last Modified time: 2022-01-19 12:04:28
  */
-const mockApiAuthLogin = req => {
+const mockApiPostAuthLogin = req => {
   return {
     code: '200',
     data: {
@@ -16,7 +16,7 @@ const mockApiAuthLogin = req => {
   };
 };
 
-const mockApiAuthMenuTree = req => {
+const mockApiGetAuthMenuTree = req => {
   return {
     code: '200',
     data: [
@@ -118,4 +118,4 @@ const mockApiAuthMenuTree = req => {
   };
 };
 
-export {mockApiAuthLogin, mockApiAuthMenuTree};
+export {mockApiPostAuthLogin, mockApiGetAuthMenuTree};

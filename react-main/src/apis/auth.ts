@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-19 11:48:17
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 12:01:21
+ * @Last Modified time: 2022-01-19 12:16:42
  */
 // apis
 // hooks
@@ -13,12 +13,13 @@ import {zgyxRequest} from '@src/utils';
 // configs
 // components
 
-const apiAuthLogin = (data: any) => {
+const apiPostAuthLogin = (data: any): Promise<any> => {
   return zgyxRequest({method: 'post', url: '/api/auth/login', data});
 };
 
-const apiAuthMenuTree = () => {
-  return zgyxRequest({method: 'get', url: 'api/auth/menu/tree'});
+const apiGetAuthMenuTree = (): Promise<any> => {
+  console.info('apiGetAuthMenuTree');
+  return zgyxRequest({method: 'get', url: '/api/auth/menu/tree'});
 };
 
-export {apiAuthLogin, apiAuthMenuTree};
+export {apiPostAuthLogin, apiGetAuthMenuTree};

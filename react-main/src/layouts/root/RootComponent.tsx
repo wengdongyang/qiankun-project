@@ -2,18 +2,21 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 11:58:11
+ * @Last Modified time: 2022-01-19 12:26:11
  */
 import styles from './RootComponent.module.less';
 import React from 'react';
+import {useRequest, useMount, useSafeState} from 'ahooks';
 import {Layout, Menu} from 'antd';
 import {MailOutlined, CalendarOutlined} from '@ant-design/icons';
 // apis
+import {apiGetAuthMenuTree} from '@src/apis/auth';
 // hooks
 // utils
 // types
 import type {FunctionComponent} from 'react';
-import type {TypeHsRouteComponentProps} from '@src/types';
+import type {TypeHsRouteComponentProps, TypeAseitResponse} from '@src/types';
+import type {TypeMenu, TypeRoute} from './types.d';
 // stores
 // configs
 // components
@@ -21,18 +24,37 @@ interface Props extends TypeHsRouteComponentProps {}
 const {SubMenu} = Menu;
 const {Header, Content, Footer, Sider} = Layout;
 const RootComponent: FunctionComponent<Props> = props => {
+  const [menuTree, setMenuTree] = useSafeState<TypeMenu[]>([]);
+  const {loading, runAsync} = useRequest(apiGetAuthMenuTree, {
+    manual: true,
+    throttleWait: 300,
+    onSuccess: (result: TypeAseitResponse) => {
+      const {code, data} = result;
+      setMenuTree(code === '200' && data?.length ? data : []);
+    },
+  });
+
+  useMount(runAsync);
+
+  const renderMenu = (menuTree: TypeMenu[]) => {
+    return menuTree.map((menuItem: TypeMenu) =>
+      menuItem?.children?.length ? (
+        <SubMenu key={menuItem.id} title={menuItem.name} icon={<MailOutlined />}>
+          {renderMenu(menuItem.children || [])}
+        </SubMenu>
+      ) : (
+        <Menu.Item key={menuItem.id} title={menuItem.name} icon={<CalendarOutlined />}>
+          {menuItem.name}
+        </Menu.Item>
+      ),
+    );
+  };
+
   const renderAside = () => (
     <aside className={styles['aside']}>
       <header className={styles['header']}></header>
       <section className={styles['body']}>
-        <Menu>
-          <Menu.Item key={'home'} icon={<MailOutlined />}>
-            Navigation One
-          </Menu.Item>
-          <Menu.Item key='2' icon={<CalendarOutlined />}>
-            Navigation Two
-          </Menu.Item>
-        </Menu>
+        <Menu>{renderMenu(menuTree)}</Menu>
       </section>
     </aside>
   );
