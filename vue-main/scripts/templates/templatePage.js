@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-19 17:15:57
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 17:21:22
+ * @Last Modified time: 2022-01-19 17:39:08
  */
 const templateIndexVue = View => {
   return `<template>
@@ -62,7 +62,9 @@ export default {
   destroyed() {},
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+@import './${ViewName}.less';
+</style>
 `;
 };
 const templateEmptyFileTsFun = FileName => {

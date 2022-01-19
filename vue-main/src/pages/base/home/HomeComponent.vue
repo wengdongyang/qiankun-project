@@ -23,4 +23,6 @@ export default {
   destroyed() {},
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+@import './HomeComponent.less';
+</style>
