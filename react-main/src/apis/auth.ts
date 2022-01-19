@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-19 11:48:17
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 12:16:42
+ * @Last Modified time: 2022-01-19 17:33:07
  */
 // apis
 // hooks
@@ -18,7 +18,6 @@ const apiPostAuthLogin = (data: any): Promise<any> => {
 };
 
 const apiGetAuthMenuTree = (): Promise<any> => {
-  console.info('apiGetAuthMenuTree');
   return zgyxRequest({method: 'get', url: '/api/auth/menu/tree'});
 };
 

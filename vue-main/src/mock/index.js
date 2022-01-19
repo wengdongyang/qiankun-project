@@ -2,14 +2,15 @@
  * @Author: wdy
  * @Date: 2022-01-17 10:41:38
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-17 10:42:20
+ * @Last Modified time: 2022-01-19 17:35:20
  */
 import Mock from 'mockjs';
 
-import {mockApiAuthSessionLogin} from './auth';
+import {mockApiPostAuthLogin, mockApiGetAuthMenuTree} from './auth';
 
 Mock.setup({timeout: 1000});
 
-Mock.mock(/\/api\/auth/, mockApiAuthSessionLogin);
+Mock.mock(/\/api\/auth\/login/, mockApiPostAuthLogin);
+Mock.mock(/\/api\/auth\/menu\/tree/, mockApiGetAuthMenuTree);
 
 export default Mock;

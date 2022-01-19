@@ -2,12 +2,12 @@
  * @Author: wdy
  * @Date: 2022-01-14 18:04:56
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-18 10:42:10
+ * @Last Modified time: 2022-01-19 17:32:30
  */
 import Login from '@src/layouts/login';
 import Root from '@src/layouts/root';
 
-import Qiankun from '@src/views/qiankun';
+import Qiankun from '@src/pages/qiankun';
 
 export default [
   {
@@ -34,7 +34,7 @@ export default [
         path: 'home',
         name: 'home',
         meta: {title: '首页'},
-        component: () => import('@src/views/home'),
+        component: () => import('@src/pages/base/home'),
       },
       {
         path: '*',

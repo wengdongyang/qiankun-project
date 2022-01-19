@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-17 10:40:21
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 14:27:30
+ * @Last Modified time: 2022-01-19 17:34:41
  */
 const mockApiPostAuthLogin = req => {
   return {
@@ -16,7 +16,7 @@ const mockApiPostAuthLogin = req => {
   };
 };
 
-const mockApiGetAuthMenuTree = req => {
+const mockApiGetAuthMenuTree = () => {
   return {
     code: '200',
     data: [

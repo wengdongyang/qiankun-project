@@ -21,7 +21,7 @@
 <script>
 import {mapActions} from 'vuex';
 // apis
-import {apiAuthSessionLogin} from '@src/apis/auth';
+import {apiPostAuthLogin} from '@src/apis/auth';
 // utils
 // types
 // stores
@@ -45,7 +45,7 @@ export default {
         const _this = this;
 
         // const values = await _this.form.validateFields();
-        // const {code, data} = await apiAuthSessionLogin(values);
+        // const {code, data} = await apiPostAuthLogin(values);
         // if (code === '200') {
         //   await _this.setUserinfo(data);
         //   _this.$router.push({path: '/root'});
