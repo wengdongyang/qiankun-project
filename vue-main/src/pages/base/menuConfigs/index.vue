@@ -1,15 +1,20 @@
 <template>
   <a-config-provider :locale="locale">
-    <HomeComponent />
+    <MenuConfigsComponent />
   </a-config-provider>
 </template>
-
 <script>
 import zhCN from 'ant-design-vue/es/locale/zh_CN';
-import HomeComponent from './HomeComponent.vue';
+// apis
+// utils
+// types
+// stores
+// configs
+// components
+import MenuConfigsComponent from './MenuConfigsComponent';
 export default {
-  name: 'home',
-  components: {HomeComponent},
+  name: 'MenuConfigs',
+  components: {MenuConfigsComponent},
   computed: {
     locale() {
       return zhCN;

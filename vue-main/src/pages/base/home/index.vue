@@ -3,12 +3,17 @@
     <HomeComponent />
   </a-config-provider>
 </template>
-
 <script>
 import zhCN from 'ant-design-vue/es/locale/zh_CN';
-import HomeComponent from './HomeComponent.vue';
+// apis
+// utils
+// types
+// stores
+// configs
+// components
+import HomeComponent from './HomeComponent';
 export default {
-  name: 'home',
+  name: 'Home',
   components: {HomeComponent},
   computed: {
     locale() {

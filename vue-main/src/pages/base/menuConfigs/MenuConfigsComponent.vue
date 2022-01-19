@@ -1,9 +1,15 @@
 <template>
-  <section>home</section>
+  <section>MenuConfigsComponent</section>
 </template>
 <script>
+// apis
+// utils
+// types
+// stores
+// configs
+// components
 export default {
-  name: 'home',
+  name: 'MenuConfigsComponent',
   components: {},
   data() {
     return {};

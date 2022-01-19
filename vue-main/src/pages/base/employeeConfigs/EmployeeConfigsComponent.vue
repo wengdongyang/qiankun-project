@@ -1,9 +1,15 @@
 <template>
-  <section>home</section>
+  <section>EmployeeConfigsComponent</section>
 </template>
 <script>
+// apis
+// utils
+// types
+// stores
+// configs
+// components
 export default {
-  name: 'home',
+  name: 'EmployeeConfigsComponent',
   components: {},
   data() {
     return {};
