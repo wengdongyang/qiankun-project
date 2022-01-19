@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import {loadMicroApp, registerMicroApps, start} from 'qiankun';
+import {registerMicroApps, start} from 'qiankun';
 export default {
   name: 'qiankun',
   components: {},
