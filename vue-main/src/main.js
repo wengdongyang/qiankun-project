@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-14 17:57:51
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 11:58:37
+ * @Last Modified time: 2022-01-19 18:04:41
  */
 import 'ant-design-vue/dist/antd.css';
 import '@src/styles/reset/index.less';
@@ -18,9 +18,9 @@ Vue.config.productionTip = false;
 Vue.use(Antd);
 
 /* eslint-disable */
-// if (process.env.NODE_ENV !== 'production') {
-//   require('@/mock');
-// }
+if (process.env.NODE_ENV !== 'production') {
+  require('@src/mock');
+}
 
 new Vue({
   router,

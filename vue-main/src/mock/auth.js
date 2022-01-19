@@ -2,9 +2,9 @@
  * @Author: wdy
  * @Date: 2022-01-17 10:40:21
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 17:34:49
+ * @Last Modified time: 2022-01-19 18:19:58
  */
-const mockApiPostAuthLogin = req => {
+const mockApiPostAuthLogin = () => {
   return {
     code: '200',
     data: {

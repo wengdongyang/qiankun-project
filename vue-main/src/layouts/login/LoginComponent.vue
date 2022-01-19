@@ -33,6 +33,7 @@ export default {
   computed: {},
   data() {
     const _this = this;
+
     return {
       form: _this.$form.createForm(_this),
     };
@@ -43,15 +44,12 @@ export default {
       try {
         e.preventDefault();
         const _this = this;
-
-        // const values = await _this.form.validateFields();
-        // const {code, data} = await apiPostAuthLogin(values);
-        // if (code === '200') {
-        //   await _this.setUserinfo(data);
-        //   _this.$router.push({path: '/root'});
-        // }
-
-        _this.$router.push({path: '/root'});
+        const values = await _this.form.validateFields();
+        const {code, data} = await apiPostAuthLogin(values);
+        if (code === '200') {
+          await _this.setUserinfo(data);
+          _this.$router.push({path: '/root'});
+        }
       } catch (error) {
         console.error(error);
       }
