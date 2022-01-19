@@ -2,7 +2,7 @@
  * @Author: wdy 
  * @Date: 2022-01-18 18:30:26 
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 14:01:12
+ * @Last Modified time: 2022-01-19 14:17:28
  */
 @import '@src/styles/configs/index.less';
 @import '@src/styles/mixins/index.less';
@@ -45,12 +45,19 @@
   }
 
   .body {
+    padding: 1px 0;
     height: calc(100vh - 64px - 48px);
     background-color: @aseit-bg-color;
 
     .spin-menu-tree {
-      margin: auto;
+      margin: 50px auto;
       display: block;
+    }
+
+    :global {
+      .ant-menu-inline {
+        border-right-color: transparent;
+      }
     }
   }
 }

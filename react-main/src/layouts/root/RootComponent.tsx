@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 14:14:18
+ * @Last Modified time: 2022-01-19 14:16:07
  */
 import styles from './RootComponent.module.less';
 import React from 'react';
@@ -91,7 +91,7 @@ const RootComponent: FunctionComponent<Props> = props => {
   );
   return (
     <Layout className={styles['main-layout']}>
-      <Sider className={styles['main-layout-sider']} collapsible>
+      <Sider className={styles['main-layout-sider']} width={300} collapsible>
         {renderAside()}
       </Sider>
       <Layout className={styles['layout']}>
