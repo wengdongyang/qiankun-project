@@ -44,6 +44,7 @@
     "mockjs": "^1.1.0"
   },
   "scripts": {
+    "createPages": "node scripts/order/createPage.js",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",

@@ -1,5 +1,12 @@
+/*
+ * @Author: wdy
+ * @Date: 2022-01-19 16:49:26
+ * @Last Modified by: wdy
+ * @Last Modified time: 2022-01-19 16:51:11
+ */
 const fs = require('fs');
-
+const path = require('path');
+const projectRootPath = path.resolve(__dirname, '../../');
 /**
  * 生成文件夹
  * @param {*} dirname
@@ -66,7 +73,7 @@ const copyFolderSync = async (source, dest, filter) => {
 const copyGitKeepSync = async fileContent => {
   if (fs.existsSync(`${fileContent}/.gitkeep`)) {
   } else {
-    fs.copyFileSync(`./scripts/.gitkeep`, `${fileContent}/.gitkeep`);
+    fs.copyFileSync(`${projectRootPath}/scripts/.gitkeep`, `${fileContent}/.gitkeep`);
   }
 };
 

@@ -2,10 +2,10 @@
  * @Author: wdy
  * @Date: 2022-01-07 15:04:09
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 16:43:33
+ * @Last Modified time: 2022-01-19 16:51:17
  */
 const path = require('path');
-const {pageGroups, pageArrays} = require('../configs/index');
+const {pageGroups} = require('../configs/index');
 const {capitalizeWord, mkdirSync, writeFileSync, copyGitKeepSync} = require('../utils/index');
 const {
   templateIndexTsxFun,
@@ -95,14 +95,4 @@ pageGroups.forEach(async group => {
       });
     }
   });
-});
-pageArrays.forEach(async pageArray => {
-  const paths = Array.from(new Set(pageArray.map(el => el.path)));
-  if (paths.length === 1) {
-    const [folderPath] = paths;
-    const pageFullPath = `${basePagesPath}/${folderPath}`;
-    await writeFileSync(`${pageFullPath}/routes.ts`, templatePageRoutesFun(folderPath, pageArray), true); // index.tsx
-  } else {
-    console.error('路径定义错误！！！');
-  }
 });
