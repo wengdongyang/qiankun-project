@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-18 18:34:44
+ * @Last Modified time: 2022-01-19 11:09:37
  */
 import styles from './LoginComponent.module.less';
 import React, {Fragment} from 'react';
@@ -11,22 +11,32 @@ import {Form, Input, Button} from 'antd';
 // hooks
 // utils
 // types
-import type {TypeHsRoute} from '@src/types';
+import type {TypeHsRouteComponentProps} from '@src/types';
 import type {FunctionComponent} from 'react';
 // stores
 // configs
 // components
-interface Props extends TypeHsRoute {}
+interface Props extends TypeHsRouteComponentProps {}
 const LoginComponent: FunctionComponent<Props> = props => {
-  const form = Form.useForm();
+  const [form] = Form.useForm();
+
+  const onClickLogin = async () => {
+    try {
+      const values = await form.validateFields();
+      const {username, password} = values;
+      if (username && password) {
+        props.history.push({pathname: '/root'});
+      }
+    } catch (error) {}
+  };
   return (
     <section className={styles['layouts']}>
       <section className={styles['form-content']}>
-        <Form className={styles['form']}>
-          <Form.Item className={styles['form-item']} label={'用户名'} name={'username'} labelCol={{span: 6}} wrapperCol={{span: 16}}>
+        <Form className={styles['form']} form={form} onFinish={onClickLogin}>
+          <Form.Item className={styles['form-item']} label={'用户名'} name={'username'} labelCol={{span: 6}} wrapperCol={{span: 16}} rules={[{required: true}]}>
             <Input />
           </Form.Item>
-          <Form.Item className={styles['form-item']} label={'密码'} name={'password'} labelCol={{span: 6}} wrapperCol={{span: 16}}>
+          <Form.Item className={styles['form-item']} label={'密码'} name={'password'} labelCol={{span: 6}} wrapperCol={{span: 16}} rules={[{required: true}]}>
             <Input.Password />
           </Form.Item>
           <Form.Item className={styles['form-item']}>
