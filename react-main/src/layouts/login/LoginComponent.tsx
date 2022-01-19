@@ -2,12 +2,13 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 11:09:37
+ * @Last Modified time: 2022-01-19 12:01:52
  */
 import styles from './LoginComponent.module.less';
 import React, {Fragment} from 'react';
 import {Form, Input, Button} from 'antd';
 // apis
+import {apiAuthLogin} from '@src/apis/auth';
 // hooks
 // utils
 // types
@@ -24,7 +25,8 @@ const LoginComponent: FunctionComponent<Props> = props => {
     try {
       const values = await form.validateFields();
       const {username, password} = values;
-      if (username && password) {
+      const {code, data} = await apiAuthLogin({username, password});
+      if (code === '200') {
         props.history.push({pathname: '/root'});
       }
     } catch (error) {}
@@ -33,10 +35,22 @@ const LoginComponent: FunctionComponent<Props> = props => {
     <section className={styles['layouts']}>
       <section className={styles['form-content']}>
         <Form className={styles['form']} form={form} onFinish={onClickLogin}>
-          <Form.Item className={styles['form-item']} label={'用户名'} name={'username'} labelCol={{span: 6}} wrapperCol={{span: 16}} rules={[{required: true}]}>
+          <Form.Item
+            className={styles['form-item']}
+            label={'用户名'}
+            name={'username'}
+            labelCol={{span: 6}}
+            wrapperCol={{span: 16}}
+            rules={[{required: true}]}>
             <Input />
           </Form.Item>
-          <Form.Item className={styles['form-item']} label={'密码'} name={'password'} labelCol={{span: 6}} wrapperCol={{span: 16}} rules={[{required: true}]}>
+          <Form.Item
+            className={styles['form-item']}
+            label={'密码'}
+            name={'password'}
+            labelCol={{span: 6}}
+            wrapperCol={{span: 16}}
+            rules={[{required: true}]}>
             <Input.Password />
           </Form.Item>
           <Form.Item className={styles['form-item']}>

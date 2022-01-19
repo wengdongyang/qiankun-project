@@ -1,0 +1,7 @@
+**/*.md
+**/*.svg
+**/*.ejs
+**/*.html
+package.json
+script/config.js
+src/pages/pageControl/config.ts

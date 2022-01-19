@@ -2,13 +2,12 @@
  * @Author: wdy
  * @Date: 2022-01-14 17:57:51
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-18 10:25:22
+ * @Last Modified time: 2022-01-19 11:58:37
  */
 import 'ant-design-vue/dist/antd.css';
 import '@src/styles/reset/index.less';
 import Vue from 'vue';
 import Antd from 'ant-design-vue';
-import {registerMicroApps, start} from 'qiankun';
 
 import App from './App.vue';
 import router from './router';

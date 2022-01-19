@@ -2,7 +2,7 @@
  * @Author: wdy 
  * @Date: 2022-01-18 18:30:26 
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 11:21:28
+ * @Last Modified time: 2022-01-19 11:24:41
  */
 @import '@src/styles/configs/index.less';
 @import '@src/styles/mixins/index.less';
@@ -34,5 +34,18 @@
       padding: 0;
       text-align: center;
     }
+  }
+}
+
+.aside {
+  text-align: initial;
+
+  .header {
+    height: 64px;
+  }
+
+  .body {
+    height: calc(100vh - 64px - 48px);
+    background-color: @aseit-bg-color;
   }
 }
