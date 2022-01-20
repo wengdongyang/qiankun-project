@@ -2,19 +2,19 @@ import * as types from '../mutation-types';
 
 export default {
   state: {
-    userinfo: {},
+    userInfo: {},
   },
   mutations: {
-    [types.SET_USERINFO](state, userinfo) {
-      state.userinfo = userinfo;
+    [types.SET_USERINFO](state, userInfo) {
+      state.userInfo = userInfo;
     },
   },
   getters: {
-    userinfo: state => state.userinfo,
+    userInfo: state => state.userInfo,
   },
   actions: {
-    setUserinfo({commit}, userinfo) {
-      commit(types.SET_USERINFO, userinfo);
+    setUserinfo({commit}, userInfo) {
+      commit(types.SET_USERINFO, userInfo);
     },
   },
 };

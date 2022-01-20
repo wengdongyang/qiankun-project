@@ -2,10 +2,12 @@
  * @Author: wdy
  * @Date: 2022-01-14 18:04:56
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 17:47:05
+ * @Last Modified time: 2022-01-20 15:21:49
  */
 import Login from '@src/layouts/login';
 import Root from '@src/layouts/root';
+
+import Page404 from '@src/layouts/page404';
 import EmptyLayout from '@src/layouts/emptyLayout';
 
 import Qiankun from '@src/pages/qiankun';
@@ -46,6 +48,11 @@ export default [
         path: 'qiankun',
         meta: {title: 'qiankun'},
         component: Qiankun,
+      },
+      {
+        path: '*',
+        meta: {title: '404'},
+        component: Page404,
       },
     ],
   },
