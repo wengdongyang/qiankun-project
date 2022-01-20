@@ -7,34 +7,30 @@ import VueRouter from 'vue-router';
 Vue.config.productionTip = false;
 let instance = null;
 
-function render(props = {}) {
+const render = (props = {}) => {
   const {container, routerBase} = props;
   const router = new VueRouter({
-    base: window.__POWERED_BY_QIANKUN__ ? '/root/qiankun/' : '/',
+    base: window.__POWERED_BY_QIANKUN__ ? '/root/qiankunVue/' : '/',
     mode: 'history',
     routes,
   });
-
   instance = new Vue({
     router,
     render: h => h(App),
   }).$mount(container ? container.querySelector('#app') : '#app');
-}
+};
 
 if (!window.__POWERED_BY_QIANKUN__) {
   render();
 }
-
-export async function bootstrap() {
+export const bootstrap = () => {
   console.log('[vue] vue app bootstraped');
-}
-
-export async function mount(props) {
+};
+export const mount = props => {
   render(props);
-}
-
-export async function unmount() {
+};
+export const unmount = () => {
   instance.$destroy();
   instance.$el.innerHTML = '';
   instance = null;
-}
+};
