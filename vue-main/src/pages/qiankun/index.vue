@@ -18,7 +18,10 @@ export default {
   computed: {},
   methods: {
     initQiankun() {
-      registerMicroApps([{name: 'sub-vue', entry: 'http://localhost:8888/', container: '#qiankunContainer', activeRule: '/root/qiankun'}]);
+      registerMicroApps([
+        {name: 'react-micro', entry: 'http://localhost:3333/', container: '#qiankunContainer', activeRule: '/root/qiankun'},
+        {name: 'vue-micro', entry: 'http://localhost:8888/', container: '#qiankunContainer', activeRule: '/root/qiankun/qiankunVue'},
+      ]);
       start();
     },
     go(href) {
