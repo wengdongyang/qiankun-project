@@ -2,16 +2,18 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 12:02:45
+ * @Last Modified time: 2022-01-20 09:41:38
  */
 import styles from './LoginComponent.module.less';
 import React from 'react';
+import {useRequest} from 'ahooks';
 import {Form, Input, Button} from 'antd';
 // apis
 import {apiPostAuthLogin} from '@src/apis/auth';
 // hooks
 // utils
 // types
+import type {TypeApiPostAuthLoginData} from '@src/apis/auth';
 import type {TypeHsRouteComponentProps} from '@src/types';
 import type {FunctionComponent} from 'react';
 // stores
@@ -21,14 +23,23 @@ interface Props extends TypeHsRouteComponentProps {}
 const LoginComponent: FunctionComponent<Props> = props => {
   const [form] = Form.useForm();
 
+  const {loading: loadingPostAuthLogin, runAsync: runAsyncPostAuthLogin} = useRequest(
+    ({username, password}: TypeApiPostAuthLoginData) => apiPostAuthLogin({username, password}),
+    {
+      manual: true,
+      onSuccess: result => {
+        const {code, data} = result;
+        if (code === '200') {
+          props.history.push({pathname: '/root'});
+        }
+      },
+    },
+  );
+
   const onClickLogin = async () => {
     try {
       const values = await form.validateFields();
-      const {username, password} = values;
-      const {code, data} = await apiPostAuthLogin({username, password});
-      if (code === '200') {
-        props.history.push({pathname: '/root'});
-      }
+      runAsyncPostAuthLogin(values);
     } catch (error) {}
   };
   return (
@@ -54,7 +65,7 @@ const LoginComponent: FunctionComponent<Props> = props => {
             <Input.Password />
           </Form.Item>
           <Form.Item className={styles['form-item']}>
-            <Button type={'primary'} htmlType={'submit'} block>
+            <Button type={'primary'} htmlType={'submit'} loading={loadingPostAuthLogin} block>
               登录
             </Button>
           </Form.Item>

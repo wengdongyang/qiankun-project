@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-19 11:48:17
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 17:33:07
+ * @Last Modified time: 2022-01-20 09:39:21
  */
 // apis
 // hooks
@@ -12,8 +12,8 @@ import {zgyxRequest} from '@src/utils';
 // stores
 // configs
 // components
-
-const apiPostAuthLogin = (data: any): Promise<any> => {
+type TypeApiPostAuthLoginData = Partial<{username: string; password: string}>;
+const apiPostAuthLogin = (data: TypeApiPostAuthLoginData): Promise<any> => {
   return zgyxRequest({method: 'post', url: '/api/auth/login', data});
 };
 
@@ -22,3 +22,4 @@ const apiGetAuthMenuTree = (): Promise<any> => {
 };
 
 export {apiPostAuthLogin, apiGetAuthMenuTree};
+export type {TypeApiPostAuthLoginData};
