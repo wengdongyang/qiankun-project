@@ -5,6 +5,7 @@ module.exports = {
   extends: ['plugin:vue/essential', 'eslint:recommended'],
   rules: {
     'no-empty': 0,
+    'no-undef': 0,
     'no-unused-vars': 0,
   },
 };

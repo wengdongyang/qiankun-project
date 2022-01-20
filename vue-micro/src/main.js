@@ -9,6 +9,8 @@ let instance = null;
 
 const render = (props = {}) => {
   const {container, routerBase} = props;
+
+  console.info(window.__POWERED_BY_QIANKUN__);
   const router = new VueRouter({
     base: window.__POWERED_BY_QIANKUN__ ? '/root/qiankunVue/' : '/',
     mode: 'history',

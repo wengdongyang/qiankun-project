@@ -1,5 +1,5 @@
 <template>
-  <div id="app">qiankun</div>
+  <div id="app"><router-view /></div>
 </template>
 
 <script>
