@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-20 10:40:21
+ * @Last Modified time: 2022-01-20 10:47:50
  */
 import styles from './RootComponent.module.less';
 import {isEmpty} from 'lodash';
@@ -50,7 +50,7 @@ const RootComponent: FunctionComponent<Props> = props => {
             props.history.push({pathname: `/root${path}`});
             break;
           case 'qiankun':
-            window.history.pushState({}, '', `/root${path}`);
+            props.history.push({pathname: `/root${path}`});
             break;
           default:
             break;

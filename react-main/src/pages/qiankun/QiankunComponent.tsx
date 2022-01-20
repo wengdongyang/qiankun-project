@@ -22,6 +22,10 @@ const QiankunComponent: FunctionComponent<Props> = props => {
     }
   };
   useMount(initMicroApps);
-  return <section className={styles['container']} ref={domRef} />;
+  return (
+    <section className={styles['container']} ref={domRef}>
+      QiankunComponent
+    </section>
+  );
 };
 export default QiankunComponent;
