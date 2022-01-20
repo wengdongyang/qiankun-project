@@ -9,9 +9,9 @@ import type {FunctionComponent} from 'react';
 // stores
 // configs
 // components
-const CameraEquipments: FunctionComponent<{}> = props => (
+const Test: FunctionComponent<{}> = props => (
   <ConfigProvider locale={zhCN} input={{autoComplete: 'off'}}>
-    <div>CameraEquipments</div>
+    <div>test</div>
   </ConfigProvider>
 );
-export default CameraEquipments;
+export default Test;

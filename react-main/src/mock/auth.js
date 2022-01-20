@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-17 10:40:21
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-20 11:13:21
+ * @Last Modified time: 2022-01-20 15:36:47
  */
 const mockApiPostAuthLogin = req => {
   return {
@@ -45,7 +45,7 @@ const mockApiGetAuthMenuTree = () => {
       {
         id: '4b40bf4fa4dc47cba091f5496ea03feb',
         parentId: '0',
-        name: '外部模块',
+        name: 'vue模块',
         isLeaf: false,
         children: [
           {
@@ -53,36 +53,22 @@ const mockApiGetAuthMenuTree = () => {
             parentId: '4b40bf4fa4dc47cba091f5496ea03feb',
             name: '菜单管理',
             isLeaf: true,
-            route: {name: '菜单管理', type: 'qiankun', path: '/qiankunVue/menuConfigs'},
-          },
-          {
-            id: '5b8c0d3d73454b96803b64116f1ecdb3',
-            parentId: '4b40bf4fa4dc47cba091f5496ea03feb',
-            name: '功能包管理',
-            isLeaf: true,
-            route: {name: '功能包管理', type: 'qiankun', path: '/qiankunVue/packManagements'},
+            route: {name: '菜单管理', type: 'qiankun', path: '/qiankunVue/test'},
           },
         ],
       },
       {
         id: '5d2b340763844b40a35d8102317b959e',
         parentId: '4b40bf4fa4dc47cba091f5496ea03feb',
-        name: '外部模块2',
+        name: 'react模块',
         isLeaf: false,
         children: [
           {
             id: '5139c08baa19449bae50c3c07c7ae98e',
             parentId: '5d2b340763844b40a35d8102317b959e',
-            name: '传感器设备管理',
+            name: 'test',
             isLeaf: true,
-            route: {name: '传感设备管理', type: 'qiankun', path: '/qiankunReact/sensingDeviceEquipments'},
-          },
-          {
-            id: '321b154f7b89452d997f88926bc12c9b',
-            parentId: '5d2b340763844b40a35d8102317b959e',
-            name: '普通视频摄像头管理',
-            isLeaf: true,
-            route: {name: '普通视频摄像头管理', type: 'qiankun', path: '/qiankunReact/cameraEquipments'},
+            route: {name: 'test', type: 'qiankun', path: '/qiankunReact/test'},
           },
         ],
       },

@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-14 18:04:56
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-20 15:21:49
+ * @Last Modified time: 2022-01-20 15:28:24
  */
 import Login from '@src/layouts/login';
 import Root from '@src/layouts/root';
@@ -45,12 +45,17 @@ export default [
         ],
       },
       {
-        path: 'qiankun',
+        path: 'qiankunReact/:path',
         meta: {title: 'qiankun'},
         component: Qiankun,
       },
       {
-        path: '*',
+        path: 'qiankunVue/:path',
+        meta: {title: 'qiankun'},
+        component: Qiankun,
+      },
+      {
+        path: '/root/*',
         meta: {title: '404'},
         component: Page404,
       },

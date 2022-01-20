@@ -2,9 +2,9 @@
  * @Author: wdy
  * @Date: 2022-01-12 14:12:10
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-20 11:43:01
+ * @Last Modified time: 2022-01-20 16:02:22
  */
-const {name} = require('./package');
+const {name} = require('./package.json');
 const CracoAlias = require('craco-alias');
 const CracoLessPlugin = require('craco-less');
 const resolveUrlLoader = require('craco-resolve-url-loader');
@@ -12,6 +12,7 @@ const resolveUrlLoader = require('craco-resolve-url-loader');
 module.exports = {
   devServer: {
     headers: {'Access-Control-Allow-Origin': '*'},
+    injectClient: false,
     // hot: false,
     // liveReload: false,
     // // watchContentBase: false,
@@ -32,12 +33,9 @@ module.exports = {
   babel: {
     plugins: [['import', {libraryName: 'antd', libraryDirectory: 'es', style: true}]],
   },
-  webpack: {
-    configure: config => {
-      config.output.library = `${name}-[name]`;
-      config.output.libraryTarget = 'umd';
-      config.output.jsonpFunction = `webpackJsonp_${packageName}`;
-      return config;
-    },
+  output: {
+    library: `${name}-[name]`,
+    libraryTarget: 'umd',
+    jsonpFunction: `webpackJsonp_${name}`,
   },
 };

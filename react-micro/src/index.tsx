@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-18 18:16:02
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-20 13:38:14
+ * @Last Modified time: 2022-01-20 16:00:20
  */
 import './public-path';
 import React from 'react';
@@ -15,7 +15,7 @@ import reportWebVitals from './reportWebVitals';
 type TypeGlobalProps = Partial<{
   container: HTMLDivElement;
 }>;
-export const render = (props: TypeGlobalProps) => {
+const render = (props: TypeGlobalProps) => {
   const {container} = props;
   ReactDOM.render(<App />, container ? container.querySelector('#root') : document.querySelector('#root'));
   reportWebVitals();
@@ -24,14 +24,14 @@ export const render = (props: TypeGlobalProps) => {
 if (!window.__POWERED_BY_QIANKUN__) {
   render({});
 }
-export const bootstrap = () => {
+export async function bootstrap() {
   console.log('[react16] react app bootstraped');
-};
-export const mount = (props: TypeGlobalProps) => {
+}
+export async function mount(props: TypeGlobalProps) {
   render(props);
-};
-export const unmount = (props: TypeGlobalProps) => {
+}
+export async function unmount(props: TypeGlobalProps) {
   const {container} = props;
   // @ts-ignore
   container ? ReactDOM.unmountComponentAtNode(container.querySelector('#root')) : ReactDOM.unmountComponentAtNode(document.querySelector('#root'));
-};
+}

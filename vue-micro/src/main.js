@@ -23,13 +23,13 @@ const render = (props = {}) => {
 if (!window.__POWERED_BY_QIANKUN__) {
   render();
 }
-export const bootstrap = () => {
+export const bootstrap = async () => {
   console.log('[vue] vue app bootstraped');
 };
-export const mount = props => {
+export const mount = async props => {
   render(props);
 };
-export const unmount = () => {
+export const unmount = async () => {
   instance.$destroy();
   instance.$el.innerHTML = '';
   instance = null;

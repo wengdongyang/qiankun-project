@@ -50,7 +50,8 @@ const RootComponent: FunctionComponent<Props> = props => {
             props.history.push({pathname: `/root${path}`});
             break;
           case 'qiankun':
-            window.history.pushState({}, '', `/root${path}`);
+            props.history.push({pathname: `/root${path}`});
+            // window.history.pushState({}, '', `/root${path}`);
             break;
           default:
             break;
