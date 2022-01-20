@@ -2,9 +2,9 @@
  * @Author: wdy
  * @Date: 2022-01-18 18:16:02
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-20 16:00:20
+ * @Last Modified time: 2022-01-20 18:14:20
  */
-import './public-path';
+import './public-path.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -17,6 +17,8 @@ type TypeGlobalProps = Partial<{
 }>;
 const render = (props: TypeGlobalProps) => {
   const {container} = props;
+
+  console.error('container', container);
   ReactDOM.render(<App />, container ? container.querySelector('#root') : document.querySelector('#root'));
   reportWebVitals();
 };

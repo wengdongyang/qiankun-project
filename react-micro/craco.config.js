@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-12 14:12:10
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-20 16:02:22
+ * @Last Modified time: 2022-01-20 18:08:01
  */
 const {name} = require('./package.json');
 const CracoAlias = require('craco-alias');
@@ -15,7 +15,7 @@ module.exports = {
     injectClient: false,
     // hot: false,
     // liveReload: false,
-    // // watchContentBase: false,
+    // watchContentBase: false,
     // historyApiFallback: true,
     port: 3333,
     proxy: {
