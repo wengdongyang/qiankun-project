@@ -4,26 +4,29 @@
  */
 
 const templateIndexTsxFun = View => {
-  return `import React from 'react'; import zhCN from 'antd/lib/locale/zh_CN'; import {ConfigProvider} from 'antd';
+  return `import React from 'react';
+import {connect} from 'react-redux';
+import {ConfigProvider} from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
 // apis
 // hooks
 // utils
 // types
-import type {Props} from './types.d';
+import type {Dispatch} from 'redux';
 import type {FunctionComponent} from 'react';
+import type {TypePageProps, TypeStore} from '@src/types';
 // stores
 // configs
 // components
 import ${View}Component from './${View}Component';
-const ${View}: FunctionComponent<Props> = props => (
+const ${View}: FunctionComponent<TypePageProps> = props => (
   <ConfigProvider locale={zhCN} input={{autoComplete: 'off'}}>
     <${View}Component {...props} />
   </ConfigProvider>
 );
-// const mapStateToProps = (state: TypeStore) => ({...state});
-// const mapDispatchToProps = (dispatch: Dispatch) => ({});
-// export default connect(mapStateToProps, mapDispatchToProps)(${View});
-export default ${View};
+const mapStateToProps = (state: TypeStore) => ({...state});
+const mapDispatchToProps = (dispatch: Dispatch) => ({});
+export default connect(mapStateToProps, mapDispatchToProps)(${View});
 `;
 };
 /**
@@ -50,16 +53,20 @@ export {base${FileName}};
  * @param {*} ViewComponent
  */
 const templatePageComponentTsxFun = (ViewName, filePath) => {
-  return `import styles from './${ViewName}.module.less';import React, {useState, useEffect, useMemo, Fragment} from 'react';import {useRequest, useMount, useSafeState} from 'ahooks';import {Row, Col, Modal, message} from 'antd';
+  return `import styles from './${ViewName}.module.less';
+import React from 'react';
+import {useRequest} from 'ahooks';
+import {Form, Input, Button} from 'antd';
 // apis
 // hooks
 // utils
 // types
-import type {Props, TypeAseitResponse} from '${filePath}types.d';import type {FunctionComponent} from 'react';
+import type {FunctionComponent} from 'react';
+import type {TypePageProps, TypeAseitResponse} from '@src/types';
 // stores
 // configs
 // components
-interface InnerProps extends Props {}
+interface InnerProps extends TypePageProps {}
 const ${ViewName}: FunctionComponent<InnerProps> = props => {
   return <section className={styles['container']}>${ViewName}</section>;
 }
@@ -72,9 +79,10 @@ export default ${ViewName};
  * @param {*} ViewComponent
  */
 const templateTypesDTsFun = () => {
-  return `import type {TypeHsRouteComponentProps, TypeAseitResponse} from '@src/types';
-type Props = TypeBaseProps;
-export type {Props, TypeAseitResponse};
+  return `type TypeAAA = Partial<{
+  aaa: string;
+}>;
+export type {TypeAAA};
 `;
 };
 
