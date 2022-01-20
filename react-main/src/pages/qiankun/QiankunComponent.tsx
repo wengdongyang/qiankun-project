@@ -17,7 +17,10 @@ const QiankunComponent: FunctionComponent<Props> = props => {
 
   const initMicroApps = () => {
     if (domRef.current) {
-      registerMicroApps([{name: 'sub-vue', entry: 'http://localhost:8888/', container: domRef.current, activeRule: '/root/qiankun'}]);
+      registerMicroApps([
+        {name: 'vue-micro', entry: 'http://localhost:8888/', container: domRef.current, activeRule: '/root/qiankunVue'},
+        {name: 'react-micro', entry: 'http://localhost:3333/', container: domRef.current, activeRule: '/root/qiankunReact'},
+      ]);
       start();
     }
   };

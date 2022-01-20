@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-20 10:47:50
+ * @Last Modified time: 2022-01-20 11:51:54
  */
 import styles from './RootComponent.module.less';
 import {isEmpty} from 'lodash';
@@ -19,7 +19,7 @@ import {getTreeDataByKey} from '@src/utils';
 // types
 import type {FunctionComponent} from 'react';
 import type {TypePageProps, TypeAseitResponse} from '@src/types';
-import type {TypeMenu, TypeRoute} from './types.d';
+import type {TypeMenu} from './types.d';
 // stores
 // configs
 // components
@@ -50,7 +50,7 @@ const RootComponent: FunctionComponent<Props> = props => {
             props.history.push({pathname: `/root${path}`});
             break;
           case 'qiankun':
-            props.history.push({pathname: `/root${path}`});
+            window.history.pushState({}, '', `/root${path}`);
             break;
           default:
             break;

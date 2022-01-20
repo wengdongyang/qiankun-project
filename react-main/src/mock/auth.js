@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2022-01-17 10:40:21
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 17:34:41
+ * @Last Modified time: 2022-01-20 11:13:21
  */
 const mockApiPostAuthLogin = req => {
   return {
@@ -67,50 +67,36 @@ const mockApiGetAuthMenuTree = () => {
             parentId: '4b40bf4fa4dc47cba091f5496ea03feb',
             name: '菜单管理',
             isLeaf: true,
-            route: {name: '菜单管理', type: 'qiankun', path: '/qiankun/menuConfigs'},
+            route: {name: '菜单管理', type: 'qiankun', path: '/qiankunVue/menuConfigs'},
           },
           {
             id: '5b8c0d3d73454b96803b64116f1ecdb3',
             parentId: '4b40bf4fa4dc47cba091f5496ea03feb',
             name: '功能包管理',
             isLeaf: true,
-            route: {name: '功能包管理', type: 'qiankun', path: '/qiankun/packManagements'},
+            route: {name: '功能包管理', type: 'qiankun', path: '/qiankunVue/packManagements'},
+          },
+        ],
+      },
+      {
+        id: '5d2b340763844b40a35d8102317b959e',
+        parentId: '4b40bf4fa4dc47cba091f5496ea03feb',
+        name: '外部模块2',
+        isLeaf: false,
+        children: [
+          {
+            id: '5139c08baa19449bae50c3c07c7ae98e',
+            parentId: '5d2b340763844b40a35d8102317b959e',
+            name: '传感器设备管理',
+            isLeaf: true,
+            route: {name: '传感设备管理', type: 'qiankun', path: '/qiankunReact/sensingDeviceEquipments'},
           },
           {
-            id: '5d2b340763844b40a35d8102317b959e',
-            parentId: '4b40bf4fa4dc47cba091f5496ea03feb',
-            name: '设备管理',
-            isLeaf: false,
-            children: [
-              {
-                id: '5139c08baa19449bae50c3c07c7ae98e',
-                parentId: '5d2b340763844b40a35d8102317b959e',
-                name: '传感器设备管理',
-                isLeaf: true,
-                route: {name: '传感设备管理', type: 'qiankun', path: '/qiankun/sensingDeviceEquipments'},
-              },
-              {
-                id: '321b154f7b89452d997f88926bc12c9b',
-                parentId: '5d2b340763844b40a35d8102317b959e',
-                name: '普通视频摄像头管理',
-                isLeaf: true,
-                route: {name: '普通视频摄像头管理', type: 'qiankun', path: '/qiankun/cameraEquipments'},
-              },
-              {
-                id: 'dad601691f2947a588440c91ea230d4d',
-                parentId: '5d2b340763844b40a35d8102317b959e',
-                name: '红外视频摄像头管理',
-                isLeaf: true,
-                route: {name: '红外视频摄像头管理', type: 'qiankun', path: '/qiankun/infraredCameraEquipments'},
-              },
-              {
-                id: 'ded11715bfe941b7b5b2fd517b6b6e9a',
-                parentId: '5d2b340763844b40a35d8102317b959e',
-                name: '服务设备管理',
-                isLeaf: true,
-                route: {name: '服务设备管理', type: 'qiankun', path: '/qiankun/serviceEquipments'},
-              },
-            ],
+            id: '321b154f7b89452d997f88926bc12c9b',
+            parentId: '5d2b340763844b40a35d8102317b959e',
+            name: '普通视频摄像头管理',
+            isLeaf: true,
+            route: {name: '普通视频摄像头管理', type: 'qiankun', path: '/qiankunReact/cameraEquipments'},
           },
         ],
       },
