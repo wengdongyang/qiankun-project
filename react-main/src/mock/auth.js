@@ -29,9 +29,9 @@ const mockApiGetAuthMenuTree = () => {
           {
             id: '7142e5de89074a75aabd06637dac7292',
             parentId: '6630d3b1a8a148e49b0887f08bae0782',
-            name: '角色菜单管理',
+            name: '首页',
             isLeaf: true,
-            route: {name: '角色菜单管理', type: 'self', path: '/base/roleMenuConfigs'},
+            route: {name: '首页', type: 'self', path: '/base/home'},
           },
           {
             id: 'ece178fafa784483887326c6697d9a26',
@@ -39,20 +39,6 @@ const mockApiGetAuthMenuTree = () => {
             name: '首页设置',
             isLeaf: true,
             route: {name: '首页设置', type: 'self', path: '/base/homeSetting'},
-          },
-          {
-            id: '74bda39c7be2498e995427bc05565342',
-            parentId: '6630d3b1a8a148e49b0887f08bae0782',
-            name: '员工管理',
-            isLeaf: true,
-            route: {name: '员工管理', type: 'self', path: '/base/employeeConfigs'},
-          },
-          {
-            id: '6b28f8f971f84a2baa78c71470e9af3b',
-            parentId: '6630d3b1a8a148e49b0887f08bae0782',
-            name: '员工服务器权限管理',
-            isLeaf: true,
-            route: {name: '员工服务器权限管理', type: 'self', path: '/base/employeeServerPermissions'},
           },
         ],
       },
