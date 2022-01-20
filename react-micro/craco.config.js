@@ -2,14 +2,20 @@
  * @Author: wdy
  * @Date: 2022-01-12 14:12:10
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-18 18:00:44
+ * @Last Modified time: 2022-01-20 11:43:01
  */
+const {name} = require('./package');
 const CracoAlias = require('craco-alias');
 const CracoLessPlugin = require('craco-less');
 const resolveUrlLoader = require('craco-resolve-url-loader');
 
 module.exports = {
   devServer: {
+    headers: {'Access-Control-Allow-Origin': '*'},
+    // hot: false,
+    // liveReload: false,
+    // // watchContentBase: false,
+    // historyApiFallback: true,
     port: 3333,
     proxy: {
       '/api': {target: 'https://hstest.aseitapps.cn', changeOrigin: true},
@@ -26,5 +32,12 @@ module.exports = {
   babel: {
     plugins: [['import', {libraryName: 'antd', libraryDirectory: 'es', style: true}]],
   },
+  webpack: {
+    configure: config => {
+      config.output.library = `${name}-[name]`;
+      config.output.libraryTarget = 'umd';
+      config.output.jsonpFunction = `webpackJsonp_${packageName}`;
+      return config;
+    },
+  },
 };
-export {};

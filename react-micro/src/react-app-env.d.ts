@@ -6,4 +6,6 @@ declare module '*.module.less' {
 
 declare interface Window {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
+  __POWERED_BY_QIANKUN__: any;
+  __INJECTED_PUBLIC_PATH_BY_QIANKUN__: any;
 }
