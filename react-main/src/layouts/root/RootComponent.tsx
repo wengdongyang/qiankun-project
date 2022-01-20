@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-19 14:16:07
+ * @Last Modified time: 2022-01-20 09:44:20
  */
 import styles from './RootComponent.module.less';
 import React from 'react';
@@ -17,17 +17,17 @@ import {apiGetAuthMenuTree} from '@src/apis/auth';
 import {getTreeDataByKey} from '@src/utils';
 // types
 import type {FunctionComponent} from 'react';
-import type {TypeHsRouteComponentProps, TypeAseitResponse} from '@src/types';
+import type {TypePageProps, TypeAseitResponse} from '@src/types';
 import type {TypeMenu, TypeRoute} from './types.d';
 // stores
 // configs
 // components
-interface Props extends TypeHsRouteComponentProps {}
+interface Props extends TypePageProps {}
 const {SubMenu} = Menu;
 const {Header, Content, Footer, Sider} = Layout;
 const RootComponent: FunctionComponent<Props> = props => {
   const [menuTree, setMenuTree] = useSafeState<TypeMenu[]>([]);
-  const {loading: loadingGetAuthMenuTree, runAsync} = useRequest(apiGetAuthMenuTree, {
+  const {loading: loadingGetAuthMenuTree, runAsync} = useRequest(() => apiGetAuthMenuTree(), {
     manual: true,
     throttleWait: 300,
     onSuccess: (result: TypeAseitResponse) => {

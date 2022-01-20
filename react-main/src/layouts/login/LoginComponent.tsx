@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-20 09:41:38
+ * @Last Modified time: 2022-01-20 10:16:47
  */
 import styles from './LoginComponent.module.less';
 import React from 'react';
@@ -14,12 +14,12 @@ import {apiPostAuthLogin} from '@src/apis/auth';
 // utils
 // types
 import type {TypeApiPostAuthLoginData} from '@src/apis/auth';
-import type {TypeHsRouteComponentProps} from '@src/types';
 import type {FunctionComponent} from 'react';
+import type {TypePageProps} from '@src/types';
 // stores
 // configs
 // components
-interface Props extends TypeHsRouteComponentProps {}
+interface Props extends TypePageProps {}
 const LoginComponent: FunctionComponent<Props> = props => {
   const [form] = Form.useForm();
 
@@ -27,6 +27,7 @@ const LoginComponent: FunctionComponent<Props> = props => {
     ({username, password}: TypeApiPostAuthLoginData) => apiPostAuthLogin({username, password}),
     {
       manual: true,
+      throttleWait: 300,
       onSuccess: result => {
         const {code, data} = result;
         if (code === '200') {
