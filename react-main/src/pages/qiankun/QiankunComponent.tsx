@@ -1,6 +1,5 @@
 import styles from './QiankunComponent.module.less';
-import React, {useRef} from 'react';
-import {useMount} from 'ahooks';
+import React, {useRef, useEffect} from 'react';
 import {registerMicroApps, start} from 'qiankun';
 // apis
 // hooks
@@ -15,18 +14,11 @@ interface Props extends TypePageProps {}
 const QiankunComponent: FunctionComponent<Props> = props => {
   const domRef = useRef<HTMLDivElement | null>(null);
 
-  const initMicroApps = () => {
-    if (domRef.current) {
-      registerMicroApps([
-        {name: 'vue-micro', entry: 'http://localhost:8888/', container: domRef.current, activeRule: '/root/qiankunVue'},
-        {name: 'react-micro', entry: 'http://localhost:3333/', container: domRef.current, activeRule: '/root/qiankunReact'},
-      ]);
-      start();
-    }
-  };
-  useMount(initMicroApps);
+  useEffect(() => {
+    start();
+  }, []);
   return (
-    <section className={styles['container']} ref={domRef}>
+    <section className={styles['container']} id={'qiankunContainer'} ref={domRef}>
       QiankunComponent
     </section>
   );
