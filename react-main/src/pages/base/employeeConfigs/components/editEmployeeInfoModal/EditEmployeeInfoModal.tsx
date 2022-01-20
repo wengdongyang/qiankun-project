@@ -1,13 +1,17 @@
-import styles from './EditEmployeeInfoModal.module.less';import React, {useState, useEffect, useMemo, Fragment} from 'react';import {useRequest, useMount, useSafeState} from 'ahooks';import {Row, Col, Modal, message} from 'antd';
+import styles from './EditEmployeeInfoModal.module.less';
+import React from 'react';
+import {useRequest} from 'ahooks';
+import {Form, Input, Button} from 'antd';
 // apis
 // hooks
 // utils
 // types
-import type {Props, TypeAseitResponse} from '../../types.d';import type {FunctionComponent} from 'react';
+import type {FunctionComponent} from 'react';
+import type {TypePageProps, TypeAseitResponse} from '@src/types';
 // stores
 // configs
 // components
-interface InnerProps extends Props {}
+interface InnerProps extends TypePageProps {}
 const EditEmployeeInfoModal: FunctionComponent<InnerProps> = props => {
   return <section className={styles['container']}>EditEmployeeInfoModal</section>;
 }

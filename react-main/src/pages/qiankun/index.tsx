@@ -3,13 +3,13 @@ import React from 'react';
 // hooks
 // utils
 // types
-import type {TypeHsRouteComponentProps} from '@src/types';
+import type {TypePageProps} from '@src/types';
 import type {FunctionComponent} from 'react';
 // stores
 // configs
 // components
 import QiankunComponent from './QiankunComponent';
-interface Props extends TypeHsRouteComponentProps {}
+interface Props extends TypePageProps {}
 const Qiankun: FunctionComponent<Props> = props => {
   return <QiankunComponent {...props} />;
 };

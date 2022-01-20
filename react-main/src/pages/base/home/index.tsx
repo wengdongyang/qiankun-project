@@ -1,20 +1,23 @@
-import React from 'react'; import zhCN from 'antd/lib/locale/zh_CN'; import {ConfigProvider} from 'antd';
+import React from 'react';
+import {connect} from 'react-redux';
+import {ConfigProvider} from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
 // apis
 // hooks
 // utils
 // types
-import type {Props} from './types.d';
+import type {Dispatch} from 'redux';
 import type {FunctionComponent} from 'react';
+import type {TypePageProps, TypeStore} from '@src/types';
 // stores
 // configs
 // components
 import HomeComponent from './HomeComponent';
-const Home: FunctionComponent<Props> = props => (
+const Home: FunctionComponent<TypePageProps> = props => (
   <ConfigProvider locale={zhCN} input={{autoComplete: 'off'}}>
     <HomeComponent {...props} />
   </ConfigProvider>
 );
-// const mapStateToProps = (state: TypeStore) => ({...state});
-// const mapDispatchToProps = (dispatch: Dispatch) => ({});
-// export default connect(mapStateToProps, mapDispatchToProps)(Home);
-export default Home;
+const mapStateToProps = (state: TypeStore) => ({...state});
+const mapDispatchToProps = (dispatch: Dispatch) => ({});
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -6,12 +6,12 @@ import {registerMicroApps, start} from 'qiankun';
 // hooks
 // utils
 // types
-import type {TypeHsRouteComponentProps} from '@src/types';
+import type {TypePageProps} from '@src/types';
 import type {FunctionComponent} from 'react';
 // stores
 // configs
 // components
-interface Props extends TypeHsRouteComponentProps {}
+interface Props extends TypePageProps {}
 const QiankunComponent: FunctionComponent<Props> = props => {
   const domRef = useRef<HTMLDivElement | null>(null);
 
