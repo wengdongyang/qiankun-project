@@ -33,7 +33,6 @@ export default {
   computed: {},
   data() {
     const _this = this;
-
     return {
       form: _this.$form.createForm(_this),
     };

@@ -2,11 +2,12 @@
  * @Author: wdy
  * @Date: 2021-09-23 17:22:55
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-20 09:44:20
+ * @Last Modified time: 2022-01-20 10:40:21
  */
 import styles from './RootComponent.module.less';
-import React from 'react';
 import {isEmpty} from 'lodash';
+import React, {Suspense} from 'react';
+import {Switch} from 'react-router-dom';
 import {Layout, Menu, Spin} from 'antd';
 import {useRequest, useMount, useSafeState} from 'ahooks';
 import {MailOutlined, CalendarOutlined} from '@ant-design/icons';
@@ -22,10 +23,12 @@ import type {TypeMenu, TypeRoute} from './types.d';
 // stores
 // configs
 // components
+import {HsdRoute} from '@src/components';
 interface Props extends TypePageProps {}
 const {SubMenu} = Menu;
 const {Header, Content, Footer, Sider} = Layout;
 const RootComponent: FunctionComponent<Props> = props => {
+  const {routes = []} = props;
   const [menuTree, setMenuTree] = useSafeState<TypeMenu[]>([]);
   const {loading: loadingGetAuthMenuTree, runAsync} = useRequest(() => apiGetAuthMenuTree(), {
     manual: true,
@@ -76,7 +79,7 @@ const RootComponent: FunctionComponent<Props> = props => {
       <header className={styles['header']}></header>
       <section className={styles['body']}>
         {loadingGetAuthMenuTree ? (
-          <Spin className={styles['spin-menu-tree']} />
+          <Spin className={styles['menu-tree-spin']} />
         ) : (
           <Menu
             mode={'inline'}
@@ -97,9 +100,13 @@ const RootComponent: FunctionComponent<Props> = props => {
       <Layout className={styles['layout']}>
         <Header className={styles['layout-header']} />
         <Content className={styles['layout-content']}>
-          <div className='site-layout-background' style={{padding: 24, minHeight: 360}}>
-            Bill is a cat.
-          </div>
+          <Suspense fallback={<Spin className={styles['layout-content-spin']} />}>
+            <Switch>
+              {routes.map((route, i) => (
+                <HsdRoute key={i} {...route} />
+              ))}
+            </Switch>
+          </Suspense>
         </Content>
         <Footer className={styles['layout-footer']}>Ant Design ©2018 Created by Ant UED</Footer>
       </Layout>
