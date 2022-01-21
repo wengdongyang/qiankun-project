@@ -1,6 +1,14 @@
 {
   "folders": [
     {
+      "name": "cra-main",
+      "path": "cra-main"
+    },
+    {
+      "name": "cra-micro",
+      "path": "cra-micro"
+    },
+    {
       "name": "react-main",
       "path": "react-main"
     },

@@ -2,38 +2,24 @@
  * @Author: wdy
  * @Date: 2019-08-13 15:52:31
  * @Last Modified by: wdy
- * @Last Modified time: 2020-11-24 14:05:33
+ * @Last Modified time: 2022-01-21 10:50:35
  */
-@import '../../styles/configs/index.less';
-@import '../../styles/mixins/index.less';
+@import '@src/styles/configs/index.less';
+@import '@src/styles/mixins/index.less';
 
-.container {
+.layouts {
   width: 100vw;
   height: 100vh;
-  background-color: @as-black;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  .bg-container {
-    width: inherit;
-    height: inherit;
+  overflow: hidden;
+  .flex-center();
 
-    background-repeat: no-repeat;
-    background-position: top center, right center, bottom center, left center;
-    background-size: initial;
+  .form-content {
+    width: 400px;
 
-    .flex-center();
-    .login-container {
-      flex-direction: column;
-      width: 730px;
-      height: 500px;
+    height: 300px;
 
-      background-repeat: no-repeat;
-      background-position: 120px top;
-      background-size: initial;
 
-      .flex-center();
-    }
+
   }
 }
 

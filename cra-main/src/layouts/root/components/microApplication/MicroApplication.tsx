@@ -19,22 +19,14 @@ import { microAppConfigs } from '../../configs';
 import { setMenus, setBaseURL, setBaseWebsocketURL } from '../../../../stores/actions';
 // component
 
-interface Props extends TypeBaseProps {
-  setBaseURL: (baseURL: string) => void;
-  setBaseWebsocketURL: (baseWebsocketURL: string) => void;
-}
+interface Props extends TypeBaseProps {}
 
 const MicroApplication: FunctionComponent<Props> = (props) => {
-  const { baseHostURL, baseURL, baseWebsocketURL } = props;
-
-  const globalState = { baseHostURL, baseURL, baseWebsocketURL };
+  const globalState = {};
   const actionRef = initGlobalState(globalState);
   actionRef.onGlobalStateChange((state: TypeStore, prev: TypeStore) => {
     console.error('onGlobalStateChange', state);
     const { baseHostURL, baseURL, baseWebsocketURL, menus } = state;
-    props.setBaseURL(baseURL);
-    props.setBaseWebsocketURL(baseWebsocketURL);
-    // console.error('666');
   });
   const microApps = microAppConfigs.map((microApp) => ({ ...microApp, props: { ...globalState } }));
   const lifeCycles = {};

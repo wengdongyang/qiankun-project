@@ -2,44 +2,41 @@
  * @Author: wdy
  * @Date: 2019-03-27 17:32:33
  * @Last Modified by: wdy
- * @Last Modified time: 2021-01-07 16:15:48
+ * @Last Modified time: 2022-01-21 10:52:50
  * @des 主布局，多屏模式
  */
 import styles from './LoginComponent.module.less';
-import { Button } from 'antd';
+import { Form, Input, Button } from 'antd';
 import React, { FunctionComponent } from 'react';
 // type
-import type { Props } from './Login.d';
+import type { Props } from './types';
 // config
-import { menuConfigs } from './configs';
 // api
 // util
 // store
 // component
 const LoginComponent: FunctionComponent<Props> = (props) => {
-  const login = async () => {
-    await props.setMenus(menuConfigs);
-    await props.history.push({
-      pathname: '/root'
-    });
-  };
+  const [form] = Form.useForm();
+  const login = async ({}) => {};
 
-  const onClickLogin = login;
-  /**
-   * form部分
-   */
   const renderForm = () => (
-    <div className={styles['form']}>
-      <Button size={'large'} block onClick={onClickLogin}>
-        登录
-      </Button>
-    </div>
+    <Form layout={'horizontal'} onFinish={login}>
+      <Form.Item label={'用户名'} name={'username'} labelCol={{ span: 6 }} wrapperCol={{ span: 16 }}>
+        <Input placeholder={'用户名'} />
+      </Form.Item>
+      <Form.Item label={'密码'} name={'password'} labelCol={{ span: 6 }} wrapperCol={{ span: 16 }}>
+        <Input.Password placeholder={'密码'} />
+      </Form.Item>
+      <Form.Item>
+        <Button type={'primary'} block htmlType={'submit'}>
+          登录
+        </Button>
+      </Form.Item>
+    </Form>
   );
   return (
-    <section className={styles['container']}>
-      <div className={styles['bg-container']}>
-        <div className={styles['login-container']}>{renderForm()}</div>
-      </div>
+    <section className={styles['layouts']}>
+      <section className={styles['form-content']}>{renderForm()}</section>
     </section>
   );
 };
