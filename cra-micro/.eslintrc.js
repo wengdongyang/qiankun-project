@@ -1,0 +1,7 @@
+module.exports = {
+  extends: ['react-app'],
+  rules: {
+    'react-hooks/exhaustive-deps': 0,
+    'react-hooks/rules-of-hooks': 0
+  }
+};
