@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2019-03-27 17:32:33
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-21 11:29:56
+ * @Last Modified time: 2022-01-21 11:40:10
  * @des 主布局，多屏模式
  */
 import styles from './LoginComponent.module.less';
@@ -23,10 +23,11 @@ const LoginComponent: FunctionComponent<Props> = (props) => {
   const { loading, runAsync } = useRequest((values: TypeApiPostAuthLoginData) => apiPostAuthLogin(values), {
     manual: true,
     throttleWait: 300,
-    onSuccess: (result: TypeAseitResponse) => {
+    onSuccess: async (result: TypeAseitResponse) => {
       const { code, data } = result;
-      if (code === '200') {
-        props.history.push({ pathname: '/root' });
+      if (code === '200' && data) {
+        await props.setUserInfo(data);
+        await props.history.push({ pathname: '/root' });
       }
     }
   });

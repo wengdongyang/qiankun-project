@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2019-03-27 17:32:33
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-21 11:24:45
+ * @Last Modified time: 2022-01-21 11:40:54
  * @des 主布局，多屏模式
  */
 import styles from './RootComponent.module.less';
@@ -12,7 +12,7 @@ import { Layout, Menu, message, Input } from 'antd';
 import { PieChartOutlined, UserOutlined } from '@ant-design/icons';
 import React, { Fragment, useState } from 'react';
 // type
-import type { Props, TypeMenu } from './types';
+import type { Props } from './types';
 import type { FunctionComponent } from 'react';
 // api
 // util
@@ -26,7 +26,7 @@ const { SubMenu } = Menu;
 const RootComponent: FunctionComponent<Props> = (props) => {
   // const { menus } = props;
   const [collapsed, setCollapsed] = useState<boolean>(false);
-  const [activeMenu, setActiveMenu] = useState<TypeMenu>({});
+  // const [activeMenu, setActiveMenu] = useState<TypeMenu>({});
 
   const onClickMenu = (key: string) => {
     // const activeMenu = getActiveMenu(menus, key);
