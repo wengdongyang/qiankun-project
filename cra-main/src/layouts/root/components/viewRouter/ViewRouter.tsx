@@ -11,7 +11,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 // import PrivateRoute from '../../components/privateRoute/PrivateRoute';
 
 import Page404 from '../../../page404';
-import Home from '../../../../pages/home';
+import Home from '@src/pages/home';
 
 import MicroApplication from '../microApplication/MicroApplication';
 

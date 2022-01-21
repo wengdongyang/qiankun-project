@@ -2,14 +2,14 @@
  * @Author: wdy
  * @Date: 2020-05-08 11:27:50
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-21 10:41:33
+ * @Last Modified time: 2022-01-21 11:30:08
  */
-import { connect } from 'react-redux';
 import React from 'react';
+import { connect } from 'react-redux';
 // types
 import type { Dispatch } from 'redux';
-import type { FunctionComponent } from 'react';
 import type { TypeStore } from '@src/types';
+import type { FunctionComponent } from 'react';
 import type { Props } from './types';
 // config
 // api

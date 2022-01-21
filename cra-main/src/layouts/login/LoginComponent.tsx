@@ -2,22 +2,40 @@
  * @Author: wdy
  * @Date: 2019-03-27 17:32:33
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-21 10:52:50
+ * @Last Modified time: 2022-01-21 11:29:56
  * @des 主布局，多屏模式
  */
 import styles from './LoginComponent.module.less';
+import React from 'react';
+import { useRequest } from 'ahooks';
 import { Form, Input, Button } from 'antd';
-import React, { FunctionComponent } from 'react';
 // type
-import type { Props } from './types';
+import type { FunctionComponent } from 'react';
+import type { TypeAseitResponse, Props } from './types';
+import type { TypeApiPostAuthLoginData } from '@src/apis/auth';
 // config
 // api
+import { apiPostAuthLogin } from '@src/apis/auth';
 // util
 // store
 // component
 const LoginComponent: FunctionComponent<Props> = (props) => {
-  const [form] = Form.useForm();
-  const login = async ({}) => {};
+  const { loading, runAsync } = useRequest((values: TypeApiPostAuthLoginData) => apiPostAuthLogin(values), {
+    manual: true,
+    throttleWait: 300,
+    onSuccess: (result: TypeAseitResponse) => {
+      const { code, data } = result;
+      if (code === '200') {
+        props.history.push({ pathname: '/root' });
+      }
+    }
+  });
+
+  const login = async (values: TypeApiPostAuthLoginData) => {
+    try {
+      runAsync(values);
+    } catch (error) {}
+  };
 
   const renderForm = () => (
     <Form layout={'horizontal'} onFinish={login}>
@@ -28,7 +46,7 @@ const LoginComponent: FunctionComponent<Props> = (props) => {
         <Input.Password placeholder={'密码'} />
       </Form.Item>
       <Form.Item>
-        <Button type={'primary'} block htmlType={'submit'}>
+        <Button type={'primary'} loading={loading} block htmlType={'submit'}>
           登录
         </Button>
       </Form.Item>

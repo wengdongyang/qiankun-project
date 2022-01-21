@@ -2,7 +2,7 @@
  * @Author: wdy
  * @Date: 2019-03-27 17:32:33
  * @Last Modified by: wdy
- * @Last Modified time: 2022-01-21 10:07:08
+ * @Last Modified time: 2022-01-21 11:24:45
  * @des 主布局，多屏模式
  */
 import styles from './RootComponent.module.less';
@@ -10,15 +10,14 @@ import qs from 'qs';
 import { isEmpty } from 'lodash';
 import { Layout, Menu, message, Input } from 'antd';
 import { PieChartOutlined, UserOutlined } from '@ant-design/icons';
-import React, { Fragment, FunctionComponent, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 // type
-import type { Props, TypeMenu } from './Root';
-// config
-import { MENU, INTERNAL_PAGE, ASEIT_INSPECTION_PAGE, ASEIT_SETTING_PAGE, FRIEND_INNER_PAGE, FRIEND_INNER_IFREAM, FRIEND_BLANK_PAGE } from './configs';
+import type { Props, TypeMenu } from './types';
+import type { FunctionComponent } from 'react';
 // api
 // util
-import { getActiveMenu } from './utils';
 // store
+// config
 // component
 
 import ViewRouter from './components/viewRouter/ViewRouter';
@@ -68,7 +67,12 @@ const RootComponent: FunctionComponent<Props> = (props) => {
     // }
   };
   const renderSider = () => (
-    <Sider className={styles['sider']} collapsible collapsed={collapsed} onCollapse={(collapsed) => setCollapsed(collapsed)}>
+    <Sider
+      className={styles['sider']}
+      collapsible
+      collapsed={collapsed}
+      onCollapse={(collapsed) => setCollapsed(collapsed)}
+    >
       <header className={styles['logo']}></header>
       <section className={styles['menus']}>
         {/* <Menu mode={'inline'} selectedKeys={activeMenu?.id ? [activeMenu.id] : []} onClick={({ key }) => onClickMenu(key.toString())}>

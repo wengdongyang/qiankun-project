@@ -20,6 +20,7 @@
     "@types/redux-persist": "^4.3.1",
     "@types/redux-thunk": "^2.1.32",
     "customize-cra": "^1.0.0",
+    "http-proxy-middleware": "^2.0.1",
     "less": "^3.12.2",
     "less-loader": "^7.1.0",
     "mockjs": "^1.1.0",
